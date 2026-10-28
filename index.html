@@ -1,0 +1,2037 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="theme-color" content="#f5f3ec">
+  <meta name="description" content="Alia Alhosani. Student developer exploring computer science, algorithms, and artificial intelligence through independent projects.">
+  <title>Alia Alhosani — Developer & Student</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=DM+Sans:wght@400;450;500;550;600;650;700&family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&display=swap" rel="stylesheet">
+
+  <style>
+    :root {
+      --paper: #f5f3ec;
+      --paper-dark: #ebe9df;
+      --ink: #20251f;
+      --muted: #77796f;
+      --line: #d7d7ca;
+      --green: #315b42;
+      --green-light: #dce5d9;
+      --white: #fbfaf6;
+      --mono: "DM Mono", monospace;
+      --sans: "DM Sans", sans-serif;
+      --serif: "Playfair Display", Georgia, serif;
+      --page: 1160px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    html {
+      scroll-behavior: smooth;
+      scroll-padding-top: 90px;
+    }
+
+    body {
+      margin: 0;
+      background: var(--paper);
+      color: var(--ink);
+      font-family: var(--sans);
+      font-size: 15px;
+      line-height: 1.7;
+      -webkit-font-smoothing: antialiased;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    button {
+      font: inherit;
+    }
+
+    button, a {
+      -webkit-tap-highlight-color: transparent;
+    }
+
+    button:focus-visible, a:focus-visible {
+      outline: 2px solid var(--green);
+      outline-offset: 5px;
+    }
+
+    ::selection {
+      color: var(--white);
+      background: var(--green);
+    }
+
+    .shell {
+      width: min(var(--page), calc(100% - 64px));
+      margin-inline: auto;
+    }
+
+    .mono {
+      font-family: var(--mono);
+      font-size: 10px;
+      line-height: 1.8;
+      letter-spacing: 1.1px;
+      text-transform: uppercase;
+    }
+
+    .muted {
+      color: var(--muted);
+    }
+
+    .topbar {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      background: rgba(245, 243, 236, .94);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .nav {
+      min-height: 68px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 24px;
+    }
+
+    .wordmark {
+      display: flex;
+      align-items: center;
+      gap: 12px;
+      font-size: 13px;
+      font-weight: 650;
+      letter-spacing: -.4px;
+    }
+
+    .wordmark-mark {
+      display: grid;
+      place-items: center;
+      width: 30px;
+      height: 30px;
+      background: var(--green);
+      color: white;
+      font-family: var(--serif);
+      font-size: 17px;
+    }
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 30px;
+    }
+
+    .nav-links a {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+      transition: color .2s;
+    }
+
+    .nav-links a:hover {
+      color: var(--green);
+    }
+
+    .nav-contact {
+      border: 1px solid var(--line);
+      padding: 8px 13px;
+      color: var(--ink) !important;
+    }
+
+    .menu-toggle {
+      display: none;
+      border: 1px solid var(--line);
+      background: transparent;
+      color: var(--ink);
+      padding: 7px 11px;
+      cursor: pointer;
+    }
+
+    /* Introduction */
+
+    .hero {
+      padding-top: 92px;
+      padding-bottom: 68px;
+      display: grid;
+      grid-template-columns: 1.15fr .85fr;
+      gap: 72px;
+      align-items: center;
+    }
+
+    .eyebrow {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      color: var(--green);
+      margin-bottom: 27px;
+    }
+
+    .status-dot {
+      width: 7px;
+      height: 7px;
+      flex: 0 0 7px;
+      background: var(--green);
+      border-radius: 50%;
+    }
+
+    h1, h2, h3, p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 670px;
+      margin-bottom: 25px;
+      font-family: var(--serif);
+      font-size: clamp(54px, 7.5vw, 94px);
+      line-height: 1.02;
+      letter-spacing: -3.7px;
+      font-weight: 500;
+    }
+
+    h1 em {
+      color: var(--green);
+      font-weight: 500;
+    }
+
+    .hero-copy {
+      max-width: 490px;
+      color: #62665d;
+      font-size: 16px;
+      line-height: 1.9;
+    }
+
+    .hero-copy strong {
+      color: var(--ink);
+      font-weight: 550;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 22px;
+      margin-top: 30px;
+    }
+
+    .text-link {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      font-size: 12px;
+      font-weight: 600;
+      border-bottom: 1px solid var(--green);
+      padding-bottom: 5px;
+    }
+
+    .text-link .arrow {
+      transition: transform .2s;
+    }
+
+    .text-link:hover .arrow {
+      transform: translate(3px, -3px);
+    }
+
+    .subtle-link {
+      color: var(--muted);
+      font-size: 12px;
+    }
+
+    .hero-aside {
+      align-self: stretch;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding-left: 32px;
+      border-left: 1px solid var(--line);
+    }
+
+    .aside-label {
+      margin-bottom: 26px;
+      color: var(--muted);
+    }
+
+    .interest-list {
+      list-style: none;
+      padding: 0;
+      margin: 0;
+    }
+
+    .interest-list li {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px 0;
+      border-bottom: 1px solid var(--line);
+      font-family: var(--serif);
+      font-size: 21px;
+    }
+
+    .interest-list li:first-child {
+      border-top: 1px solid var(--line);
+    }
+
+    .interest-list span {
+      font-family: var(--mono);
+      font-size: 10px;
+      color: var(--muted);
+    }
+
+    .hero-note {
+      margin-top: 25px;
+      font-size: 12px;
+      color: var(--muted);
+    }
+
+    /* Small introduction strip */
+
+    .facts-strip {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+    }
+
+    .fact {
+      padding: 22px 24px 22px 0;
+    }
+
+    .fact + .fact {
+      padding-left: 24px;
+      border-left: 1px solid var(--line);
+    }
+
+    .fact-value {
+      font-family: var(--serif);
+      font-size: 23px;
+      line-height: 1.35;
+    }
+
+    .fact-label {
+      margin-top: 6px;
+      color: var(--muted);
+    }
+
+    /* Section structure */
+
+    .section {
+      padding-top: 100px;
+      padding-bottom: 100px;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .section-heading {
+      display: grid;
+      grid-template-columns: 155px 1fr;
+      gap: 35px;
+      margin-bottom: 45px;
+    }
+
+    .section-index {
+      padding-top: 9px;
+      color: var(--muted);
+    }
+
+    .section-title {
+      max-width: 710px;
+      margin-bottom: 14px;
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: clamp(36px, 4.5vw, 55px);
+      letter-spacing: -1.6px;
+      line-height: 1.14;
+    }
+
+    .section-intro {
+      max-width: 600px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    /* Projects */
+
+    .project-toolbar {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      padding: 15px 0;
+      border-top: 1px solid var(--line);
+      border-bottom: 1px solid var(--line);
+      margin-bottom: 0;
+    }
+
+    .filters {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 6px;
+    }
+
+    .filter {
+      border: 1px solid transparent;
+      background: transparent;
+      color: var(--muted);
+      padding: 7px 10px;
+      font-family: var(--mono);
+      font-size: 10px;
+      cursor: pointer;
+    }
+
+    .filter:hover,
+    .filter.active {
+      border-color: var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    .project-count {
+      color: var(--muted);
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 64px minmax(0, 1fr) 210px;
+      gap: 28px;
+      padding: 31px 0 35px;
+      border-bottom: 1px solid var(--line);
+      transition: background .2s;
+    }
+
+    .project[hidden] {
+      display: none;
+    }
+
+    .project-number {
+      padding-top: 4px;
+      color: var(--muted);
+    }
+
+    .project-title-line {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      gap: 11px;
+      margin-bottom: 12px;
+    }
+
+    .project h3 {
+      margin-bottom: 0;
+      font-family: var(--serif);
+      font-size: 27px;
+      font-weight: 500;
+      letter-spacing: -.5px;
+      line-height: 1.25;
+    }
+
+    .project-status {
+      border: 1px solid var(--line);
+      padding: 3px 7px;
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 9px;
+      text-transform: uppercase;
+      letter-spacing: .4px;
+    }
+
+    .project-description {
+      max-width: 590px;
+      color: #65685f;
+      font-size: 13px;
+      line-height: 1.9;
+      margin-bottom: 17px;
+    }
+
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 7px;
+    }
+
+    .tag {
+      color: var(--green);
+      background: var(--green-light);
+      padding: 4px 8px;
+      font-family: var(--mono);
+      font-size: 9px;
+    }
+
+    .project-side {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      justify-content: space-between;
+      gap: 22px;
+      padding-left: 20px;
+      border-left: 1px solid var(--line);
+    }
+
+    .project-kind {
+      color: var(--muted);
+    }
+
+    .project-open {
+      border: 0;
+      border-bottom: 1px solid var(--green);
+      background: transparent;
+      padding: 0 0 5px;
+      color: var(--ink);
+      font-size: 11px;
+      cursor: pointer;
+    }
+
+    .project-open:hover {
+      color: var(--green);
+    }
+
+    .github-note {
+      margin-top: 24px;
+      color: var(--muted);
+      font-size: 11px;
+      line-height: 1.8;
+    }
+
+    /* Project details dialog */
+
+    dialog {
+      width: min(620px, calc(100% - 32px));
+      max-height: 85vh;
+      padding: 0;
+      overflow: auto;
+      border: 1px solid var(--line);
+      background: var(--white);
+      color: var(--ink);
+    }
+
+    dialog::backdrop {
+      background: rgba(24, 30, 24, .5);
+      backdrop-filter: blur(4px);
+    }
+
+    .dialog-inner {
+      padding: clamp(24px, 5vw, 42px);
+    }
+
+    .dialog-top {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+      margin-bottom: 25px;
+    }
+
+    .dialog-close {
+      background: transparent;
+      border: 1px solid var(--line);
+      padding: 5px 10px;
+      cursor: pointer;
+      color: var(--ink);
+    }
+
+    .dialog h2 {
+      font-family: var(--serif);
+      font-size: 38px;
+      font-weight: 500;
+      line-height: 1.2;
+      margin-bottom: 18px;
+    }
+
+    .dialog p {
+      color: #65685f;
+      font-size: 14px;
+      line-height: 1.9;
+    }
+
+    .detail-label {
+      color: var(--green);
+      margin-top: 25px;
+      margin-bottom: 8px;
+    }
+
+    .dialog-action {
+      display: inline-block;
+      margin-top: 15px;
+    }
+
+    /* Algorithm demonstration */
+
+    .lab-layout {
+      display: grid;
+      grid-template-columns: .85fr 1.15fr;
+      gap: 55px;
+      align-items: start;
+    }
+
+    .lab-copy h3 {
+      font-family: var(--serif);
+      font-size: 31px;
+      font-weight: 500;
+      line-height: 1.3;
+      margin-bottom: 16px;
+    }
+
+    .lab-copy p {
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .lab-meta {
+      margin-top: 25px;
+      padding-top: 16px;
+      border-top: 1px solid var(--line);
+      color: var(--muted);
+    }
+
+    .lab {
+      padding: 20px;
+      background: #eae9df;
+      border: 1px solid var(--line);
+    }
+
+    .lab-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 15px;
+      margin-bottom: 15px;
+    }
+
+    .lab-header span:last-child {
+      color: var(--muted);
+    }
+
+    .maze {
+      display: grid;
+      grid-template-columns: repeat(14, minmax(0, 1fr));
+      gap: 3px;
+      aspect-ratio: 1;
+      width: 100%;
+    }
+
+    .cell {
+      min-width: 0;
+      background: #f9f8f2;
+      border: 1px solid rgba(55, 73, 55, .07);
+      transition: background .18s;
+    }
+
+    .cell.wall {
+      background: #6b7568;
+      border-color: #6b7568;
+    }
+
+    .cell.route {
+      background: #b3c9a9;
+      border-color: #b3c9a9;
+    }
+
+    .cell.visited {
+      background: #d5e1d0;
+    }
+
+    .cell.start,
+    .cell.end {
+      position: relative;
+      background: var(--green);
+      border-color: var(--green);
+    }
+
+    .cell.start::after,
+    .cell.end::after {
+      position: absolute;
+      inset: 0;
+      display: grid;
+      place-items: center;
+      color: white;
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .cell.start::after {
+      content: "S";
+    }
+
+    .cell.end::after {
+      content: "E";
+    }
+
+    .lab-controls {
+      display: flex;
+      flex-wrap: wrap;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      margin-top: 17px;
+    }
+
+    .lab-button {
+      border: 1px solid var(--green);
+      background: var(--green);
+      color: white;
+      padding: 9px 13px;
+      cursor: pointer;
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .lab-button.secondary {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .lab-button:hover {
+      opacity: .83;
+    }
+
+    .lab-status {
+      color: var(--muted);
+      font-family: var(--mono);
+      font-size: 10px;
+    }
+
+    .lab-legend {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 13px;
+      margin-top: 16px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .legend-item {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .legend-swatch {
+      width: 9px;
+      height: 9px;
+      background: #f9f8f2;
+      border: 1px solid var(--line);
+    }
+
+    .legend-swatch.wall {
+      background: #6b7568;
+    }
+
+    .legend-swatch.path {
+      background: #b3c9a9;
+    }
+
+    .legend-swatch.start {
+      background: var(--green);
+    }
+
+    /* About */
+
+    .about-layout {
+      display: grid;
+      grid-template-columns: 155px 1fr;
+      gap: 35px;
+    }
+
+    .about-body {
+      display: grid;
+      grid-template-columns: 1.2fr .8fr;
+      gap: 60px;
+    }
+
+    .about-prose p {
+      color: #62665d;
+      font-size: 14px;
+      line-height: 2;
+      margin-bottom: 20px;
+    }
+
+    .about-prose p:first-child {
+      color: var(--ink);
+      font-family: var(--serif);
+      font-size: 25px;
+      line-height: 1.55;
+    }
+
+    .notes {
+      border-top: 1px solid var(--line);
+    }
+
+    .note {
+      padding: 17px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .note-label {
+      margin-bottom: 5px;
+      color: var(--muted);
+    }
+
+    .note-value {
+      font-size: 13px;
+      line-height: 1.8;
+    }
+
+    /* Academic timeline */
+
+    .timeline {
+      border-top: 1px solid var(--line);
+    }
+
+    .timeline-item {
+      display: grid;
+      grid-template-columns: 155px 1fr;
+      gap: 35px;
+      padding: 24px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .timeline-date {
+      padding-top: 5px;
+      color: var(--muted);
+    }
+
+    .timeline-item h3 {
+      font-family: var(--serif);
+      font-weight: 500;
+      font-size: 22px;
+      margin-bottom: 6px;
+    }
+
+    .timeline-item p {
+      max-width: 650px;
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    /* Recognition */
+
+    .recognition {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      border-top: 1px solid var(--line);
+    }
+
+    .recognition-item {
+      padding: 25px 30px 25px 0;
+      border-bottom: 1px solid var(--line);
+    }
+
+    .recognition-item:nth-child(even) {
+      padding-left: 30px;
+      border-left: 1px solid var(--line);
+    }
+
+    .recognition-item h3 {
+      margin: 10px 0 7px;
+      font-family: var(--serif);
+      font-size: 21px;
+      font-weight: 500;
+    }
+
+    .recognition-item p {
+      margin-bottom: 0;
+      color: var(--muted);
+      font-size: 12px;
+      line-height: 1.8;
+    }
+
+    /* Contact */
+
+    .contact-section {
+      padding-top: 100px;
+      padding-bottom: 85px;
+    }
+
+    .contact-layout {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: end;
+      gap: 35px;
+    }
+
+    .contact-title {
+      max-width: 680px;
+      margin: 18px 0 20px;
+      font-family: var(--serif);
+      font-size: clamp(43px, 6vw, 75px);
+      font-weight: 500;
+      letter-spacing: -2px;
+      line-height: 1.08;
+    }
+
+    .contact-title em {
+      color: var(--green);
+    }
+
+    .contact-copy {
+      max-width: 490px;
+      color: var(--muted);
+      font-size: 13px;
+      line-height: 1.9;
+    }
+
+    .contact-actions {
+      display: flex;
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 15px;
+      padding-bottom: 6px;
+    }
+
+    .contact-button {
+      display: inline-block;
+      padding: 13px 17px;
+      background: var(--green);
+      color: white;
+      font-size: 12px;
+      font-weight: 600;
+      border: 1px solid var(--green);
+      transition: background .2s, color .2s;
+    }
+
+    .contact-button:hover {
+      background: transparent;
+      color: var(--green);
+    }
+
+    .contact-secondary {
+      font-size: 12px;
+      color: var(--muted);
+      border-bottom: 1px solid var(--line);
+      padding-bottom: 4px;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+    }
+
+    .footer-inner {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 20px;
+      min-height: 72px;
+      color: var(--muted);
+      font-size: 10px;
+    }
+
+    .footer-links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 20px;
+    }
+
+    .footer-links a:hover {
+      color: var(--green);
+    }
+
+    .reveal {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity .65s ease, transform .65s ease;
+    }
+
+    .reveal.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+      html {
+        scroll-behavior: auto;
+      }
+
+      *, *::before, *::after {
+        animation-duration: .01ms !important;
+        transition-duration: .01ms !important;
+      }
+
+      .reveal {
+        opacity: 1;
+        transform: none;
+      }
+    }
+
+    @media (max-width: 800px) {
+      .shell {
+        width: min(100% - 40px, var(--page));
+      }
+
+      .hero {
+        padding-top: 65px;
+        grid-template-columns: 1fr;
+        gap: 45px;
+      }
+
+      .hero-aside {
+        padding: 25px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .interest-list li {
+        font-size: 19px;
+      }
+
+      .section {
+        padding-top: 72px;
+        padding-bottom: 72px;
+      }
+
+      .section-heading,
+      .about-layout {
+        grid-template-columns: 1fr;
+        gap: 15px;
+      }
+
+      .project {
+        grid-template-columns: 38px minmax(0, 1fr);
+        gap: 17px;
+      }
+
+      .project-side {
+        grid-column: 2;
+        flex-direction: row;
+        align-items: center;
+        padding: 12px 0 0;
+        border-left: 0;
+        border-top: 1px solid var(--line);
+      }
+
+      .lab-layout {
+        grid-template-columns: 1fr;
+        gap: 30px;
+      }
+
+      .about-body {
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+
+      .timeline-item {
+        grid-template-columns: 100px 1fr;
+        gap: 20px;
+      }
+
+      .contact-layout {
+        grid-template-columns: 1fr;
+      }
+
+      .contact-actions {
+        flex-direction: row;
+        flex-wrap: wrap;
+        align-items: center;
+      }
+    }
+
+    @media (max-width: 540px) {
+      .shell {
+        width: calc(100% - 36px);
+      }
+
+      .nav {
+        min-height: 62px;
+      }
+
+      .menu-toggle {
+        display: block;
+      }
+
+      .nav-links {
+        display: none;
+        position: absolute;
+        top: 62px;
+        left: 0;
+        right: 0;
+        padding: 20px 18px;
+        background: var(--paper);
+        border-bottom: 1px solid var(--line);
+        flex-direction: column;
+        align-items: stretch;
+        gap: 0;
+      }
+
+      .nav-links.open {
+        display: flex;
+      }
+
+      .nav-links a {
+        padding: 12px 0;
+      }
+
+      .nav-links .nav-contact {
+        margin-top: 8px;
+        text-align: center;
+      }
+
+      h1 {
+        font-size: clamp(48px, 13vw, 67px);
+        letter-spacing: -2.6px;
+      }
+
+      .hero {
+        padding-top: 51px;
+        padding-bottom: 48px;
+      }
+
+      .hero-copy {
+        font-size: 14px;
+      }
+
+      .facts-strip {
+        grid-template-columns: 1fr;
+      }
+
+      .fact,
+      .fact + .fact {
+        padding: 17px 0;
+        border-left: 0;
+      }
+
+      .fact + .fact {
+        border-top: 1px solid var(--line);
+      }
+
+      .fact-value {
+        font-size: 21px;
+      }
+
+      .section-title {
+        font-size: 39px;
+      }
+
+      .project {
+        grid-template-columns: 27px minmax(0, 1fr);
+        gap: 12px;
+        padding: 25px 0;
+      }
+
+      .project h3 {
+        font-size: 24px;
+      }
+
+      .project-toolbar {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .lab {
+        padding: 12px;
+      }
+
+      .maze {
+        gap: 2px;
+      }
+
+      .lab-controls {
+        align-items: flex-start;
+        flex-direction: column;
+      }
+
+      .recognition {
+        grid-template-columns: 1fr;
+      }
+
+      .recognition-item,
+      .recognition-item:nth-child(even) {
+        padding: 20px 0;
+        border-left: 0;
+      }
+
+      .timeline-item {
+        grid-template-columns: 1fr;
+        gap: 5px;
+      }
+
+      .contact-title {
+        font-size: 49px;
+        letter-spacing: -1.5px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
+        justify-content: center;
+        padding: 18px 0;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header class="topbar">
+    <nav class="nav shell" aria-label="Main navigation">
+      <a class="wordmark" href="#home" aria-label="Alia Alhosani home">
+        <span class="wordmark-mark">A</span>
+        <span>Alia Alhosani</span>
+      </a>
+
+      <button class="menu-toggle" id="menuToggle" aria-expanded="false" aria-controls="navLinks">
+        Menu
+      </button>
+
+      <div class="nav-links" id="navLinks">
+        <a href="#work">WORK</a>
+        <a href="#lab">EXPERIMENT</a>
+        <a href="#about">ABOUT</a>
+        <a href="#background">BACKGROUND</a>
+        <a class="nav-contact" href="#contact">GET IN TOUCH ↗</a>
+      </div>
+    </nav>
+  </header>
+
+  <main>
+    <section class="hero shell" id="home">
+      <div class="reveal">
+        <div class="eyebrow mono">
+          <span class="status-dot"></span>
+          GRADE 12 · STUDENT DEVELOPER
+        </div>
+
+        <h1>Curious about how things <em>work?</em></h1>
+
+        <p class="hero-copy">
+          I'm Alia, a student in the UAE who enjoys building software,
+          experimenting with ideas, and figuring out how to turn a concept
+          into something that actually works. I'm interested in computer
+          science and the possibilities of artificial intelligence.
+        </p>
+
+        <div class="hero-actions">
+          <a class="text-link" href="#work">
+            Explore my work <span class="arrow">↗</span>
+          </a>
+          <a class="subtle-link" href="https://github.com/aliavated" target="_blank" rel="noopener noreferrer">
+            GitHub profile ↗
+          </a>
+        </div>
+      </div>
+
+      <aside class="hero-aside reveal">
+        <div class="aside-label mono">CURRENT INTERESTS / 01—04</div>
+
+        <ul class="interest-list">
+          <li>Algorithms <span>01</span></li>
+          <li>Software development <span>02</span></li>
+          <li>Artificial intelligence <span>03</span></li>
+          <li>Interactive systems <span>04</span></li>
+        </ul>
+
+        <p class="hero-note">
+          Learning by making, testing, and improving.
+        </p>
+      </aside>
+    </section>
+
+    <div class="shell">
+      <div class="facts-strip reveal">
+        <div class="fact">
+          <div class="fact-value">Independent projects</div>
+          <div class="fact-label mono">Learning outside the classroom</div>
+        </div>
+        <div class="fact">
+          <div class="fact-value">Computer science</div>
+          <div class="fact-label mono">An intended field of study</div>
+        </div>
+        <div class="fact">
+          <div class="fact-value">Abu Dhabi, UAE</div>
+          <div class="fact-label mono">Where my story begins</div>
+        </div>
+      </div>
+    </div>
+
+    <section class="section shell" id="work">
+      <div class="section-heading reveal">
+        <div class="section-index mono">01 / SELECTED WORK</div>
+        <div>
+          <h2 class="section-title">Things I've been working on:</h2>
+          <p class="section-intro">
+            A selection of personal software ideas and experiments.
+            Some are prototypes and some are ongoing projects. I want each
+            one to teach me something beyond just getting the interface right.
+          </p>
+        </div>
+      </div>
+
+      <div class="project-toolbar reveal">
+        <div class="filters" role="group" aria-label="Filter projects">
+          <button class="filter active" data-filter="all" aria-pressed="true">ALL WORK</button>
+          <button class="filter" data-filter="systems" aria-pressed="false">SYSTEMS</button>
+          <button class="filter" data-filter="web" aria-pressed="false">WEB</button>
+          <button class="filter" data-filter="games" aria-pressed="false">GAMES</button>
+        </div>
+        <span class="project-count mono" id="projectCount">04 PROJECTS</span>
+      </div>
+
+      <article class="project reveal" data-category="systems">
+        <div class="project-number mono">01</div>
+
+        <div>
+          <div class="project-title-line">
+            <h3>Autonomous Navigation System</h3>
+            <span class="project-status">Prototype</span>
+          </div>
+
+          <p class="project-description">
+            A browser-based navigation simulation built around a grid of
+            terrain and obstacles. The idea is to make pathfinding visible:
+            choose a starting point and destination, add barriers, and
+            observe how a route can be found through the environment.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Algorithms</span>
+            <span class="tag">HTML / CSS</span>
+          </div>
+        </div>
+
+        <div class="project-side">
+          <span class="project-kind mono">ALGORITHMIC SYSTEM</span>
+          <button class="project-open" data-project="navigation">Read project notes ↗</button>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="web">
+        <div class="project-number mono">02</div>
+
+        <div>
+          <div class="project-title-line">
+            <h3>Rooted</h3>
+            <span class="project-status">Concept</span>
+          </div>
+
+          <p class="project-description">
+            A community app concept for people living away from their home
+            countries. It explores how digital tools could help people
+            maintain cultural connections, communicate across language
+            barriers, and preserve personal memories.
+          </p>
+
+          <div class="tags">
+            <span class="tag">Product design</span>
+            <span class="tag">Web development</span>
+            <span class="tag">Community</span>
+          </div>
+        </div>
+
+        <div class="project-side">
+          <span class="project-kind mono">PRODUCT CONCEPT</span>
+          <button class="project-open" data-project="rooted">Read project notes ↗</button>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="web">
+        <div class="project-number mono">03</div>
+
+        <div>
+          <div class="project-title-line">
+            <h3>Alia's Search Engine</h3>
+            <span class="project-status">Web project</span>
+          </div>
+
+          <p class="project-description">
+            A search interface experiment exploring how people interact
+            with search tools and how the presentation of results can affect
+            what users notice. The project is also an opportunity to explore
+            the relationship between search, technology, and fairness.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Interface design</span>
+            <span class="tag">Search</span>
+          </div>
+        </div>
+
+        <div class="project-side">
+          <span class="project-kind mono">INTERFACE EXPERIMENT</span>
+          <button class="project-open" data-project="search">Read project notes ↗</button>
+        </div>
+      </article>
+
+      <article class="project reveal" data-category="games">
+        <div class="project-number mono">04</div>
+
+        <div>
+          <div class="project-title-line">
+            <h3>Candy Dash</h3>
+            <span class="project-status">Game project</span>
+          </div>
+
+          <p class="project-description">
+            A game concept built around themed worlds, levels, and
+            progression. It gives me room to experiment with interactive
+            interfaces, game logic, and how small design choices influence
+            the experience of playing.
+          </p>
+
+          <div class="tags">
+            <span class="tag">JavaScript</span>
+            <span class="tag">Game logic</span>
+            <span class="tag">UI design</span>
+          </div>
+        </div>
+
+        <div class="project-side">
+          <span class="project-kind mono">INTERACTIVE PROJECT</span>
+          <button class="project-open" data-project="candy">Read project notes ↗</button>
+        </div>
+      </article>
+
+      <p class="github-note reveal">
+        Source code and development progress can be explored on
+        <a class="text-link" href="https://github.com/aliavated" target="_blank" rel="noopener noreferrer">
+          my GitHub profile ↗
+        </a>
+        Individual repository links can be added as each project is published.
+      </p>
+    </section>
+
+    <dialog id="projectDialog" class="dialog" aria-labelledby="dialogTitle">
+      <div class="dialog-inner">
+        <div class="dialog-top">
+          <span class="mono muted" id="dialogLabel">PROJECT NOTES</span>
+          <button class="dialog-close" id="dialogClose" aria-label="Close project notes">Close ×</button>
+        </div>
+        <h2 id="dialogTitle"></h2>
+        <p id="dialogDescription"></p>
+        <div class="detail-label mono">WHAT I'M EXPLORING</div>
+        <p id="dialogLearning"></p>
+        <div class="detail-label mono">NEXT STEPS</div>
+        <p id="dialogNext"></p>
+        <a class="text-link dialog-action" href="https://github.com/aliavated" target="_blank" rel="noopener noreferrer">
+          Visit GitHub profile ↗
+        </a>
+      </div>
+    </dialog>
+
+    <section class="section shell" id="lab">
+      <div class="section-heading reveal">
+        <div class="section-index mono">02 / INTERACTIVE EXPERIMENT</div>
+        <div>
+          <h2 class="section-title">A small problem, made visible.</h2>
+          <p class="section-intro">
+            A simplified pathfinding demonstration. It uses breadth-first
+            search to explore a grid and find a shortest route when one
+            exists. Try it, change the obstacles, and see what happens.
+          </p>
+        </div>
+      </div>
+
+      <div class="lab-layout reveal">
+        <div class="lab-copy">
+          <span class="mono muted">EXPERIMENT 001</span>
+          <h3>Finding a way through.</h3>
+
+          <p>
+            A pathfinding algorithm searches a space of possible positions.
+            In this example, each cell is a position and blocked cells
+            represent obstacles. The search checks neighbouring cells until
+            it reaches the destination or runs out of options.
+          </p>
+
+          <p>
+            Breadth-first search is useful here because every move has the
+            same cost. It finds a route with the fewest steps, though it
+            does not account for different terrain costs.
+          </p>
+
+          <div class="lab-meta mono">
+            METHOD: BREADTH-FIRST SEARCH<br>
+            MOVEMENT: FOUR DIRECTIONS<br>
+            COST PER MOVE: 1
+          </div>
+        </div>
+
+        <div class="lab">
+          <div class="lab-header">
+            <span class="mono">GRID / 14 × 14</span>
+            <span class="mono" id="labSteps">READY</span>
+          </div>
+
+          <div class="maze" id="maze" role="img" aria-label="Interactive pathfinding grid"></div>
+
+          <div class="lab-controls">
+            <div style="display:flex; flex-wrap:wrap; gap:8px;">
+              <button class="lab-button" id="findPath">Find route</button>
+              <button class="lab-button secondary" id="newMaze">New obstacles</button>
+            </div>
+            <span class="lab-status" id="labStatus" aria-live="polite">Ready to search.</span>
+          </div>
+
+          <div class="lab-legend">
+            <span class="legend-item"><span class="legend-swatch start"></span> Start / End</span>
+            <span class="legend-item"><span class="legend-swatch wall"></span> Obstacle</span>
+            <span class="legend-item"><span class="legend-swatch path"></span> Route</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="about">
+      <div class="about-layout">
+        <div class="section-index mono reveal">03 / A LITTLE ABOUT ME</div>
+
+        <div class="about-body">
+          <div class="about-prose reveal">
+            <p>
+              I've been interested in making things with code for years.
+              What keeps me interested is the moment an idea starts becoming
+              something I can test, change, and understand.
+            </p>
+
+            <p>
+              I've explored web development and small game projects, and
+              I've learned to work independently when a class or structured
+              course wasn't available. That has meant finding resources,
+              figuring out unfamiliar concepts, and learning through
+              trial and error.
+            </p>
+
+            <p>
+              I'm now working toward a stronger foundation in computer
+              science. I'm especially interested in understanding the
+              mathematics and algorithms behind intelligent systems, rather
+              than treating AI as a tool that simply produces an answer.
+            </p>
+
+            <p>
+              Outside technology, I enjoy writing and poetry. Those interests
+              give me a different way to approach ideas and communicate them.
+            </p>
+          </div>
+
+          <div class="notes reveal">
+            <div class="note">
+              <div class="note-label mono">CURRENT STAGE</div>
+              <div class="note-value">Grade 12</div>
+            </div>
+
+            <div class="note">
+              <div class="note-label mono">ACADEMIC INTERESTS</div>
+              <div class="note-value">Computer science, AI, mathematics, physics</div>
+            </div>
+
+            <div class="note">
+              <div class="note-label mono">TOOLS & LANGUAGES</div>
+              <div class="note-value">HTML, CSS, JavaScript, Python fundamentals</div>
+            </div>
+
+            <div class="note">
+              <div class="note-label mono">ALSO INTERESTED IN</div>
+              <div class="note-value">Poetry, writing, interface design, interactive experiences</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="section shell" id="background">
+      <div class="section-heading reveal">
+        <div class="section-index mono">04 / ACADEMIC BACKGROUND</div>
+        <div>
+          <h2 class="section-title">What I've learned along the way:</h2>
+          <p class="section-intro">
+            My interests have developed through school, independent learning,
+            and experiences that have pushed me to explore ideas beyond a
+            single subject.
+          </p>
+        </div>
+      </div>
+
+      <div class="timeline">
+        <article class="timeline-item reveal">
+          <div class="timeline-date mono">CURRENT</div>
+          <div>
+            <h3>Senior secondary school</h3>
+            <p>
+              Grade 12, continuing my studies while developing personal
+              projects and preparing for university. My current academic
+              interests include computer science, mathematics, physics,
+              and English.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date mono">AP COURSEWORK</div>
+          <div>
+            <h3>Independent computer science preparation</h3>
+            <p>
+              Preparing for AP Computer Science Principles independently,
+              alongside AP Precalculus and AP English Language and
+              Composition coursework. Independent preparation has made
+              planning, finding resources, and staying consistent important
+              parts of my learning.
+            </p>
+          </div>
+        </article>
+
+        <article class="timeline-item reveal">
+          <div class="timeline-date mono">EARLIER STUDIES</div>
+          <div>
+            <h3>Learning through projects and exploration</h3>
+            <p>
+              Started exploring programming and building small websites and
+              games at school and independently. These early experiments
+              helped me discover that I enjoy solving problems by making
+              things and seeing how they behave.
+            </p>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section shell" id="recognition">
+      <div class="section-heading reveal">
+        <div class="section-index mono">05 / RECOGNITION</div>
+        <div>
+          <h2 class="section-title">A few things I'm proud of:</h2>
+          <p class="section-intro">
+            Beyond coding, these experiences have shaped how I learn,
+            communicate, and challenge myself.
+          </p>
+        </div>
+      </div>
+
+      <div class="recognition">
+        <article class="recognition-item reveal">
+          <span class="mono muted">SCIENCE</span>
+          <h3>Student of the Year in Science</h3>
+          <p>
+            Recognition received at the end of Grade 8.
+          </p>
+        </article>
+
+        <article class="recognition-item reveal">
+          <span class="mono muted">PHYSICS</span>
+          <h3>96% achievement</h3>
+          <p>
+            Received a school certificate recognizing my physics result.
+          </p>
+        </article>
+
+        <article class="recognition-item reveal">
+          <span class="mono muted">POETRY</span>
+          <h3>Poetry competition</h3>
+          <p>
+            Won a school poetry competition and travelled to Dubai to
+            read my poem to a large audience.
+          </p>
+        </article>
+
+        <article class="recognition-item reveal">
+          <span class="mono muted">EXPLORATION</span>
+          <h3>Learning beyond the classroom</h3>
+          <p>
+            Educational visits to the Louvre Abu Dhabi and ADNEC robotics
+            exhibits gave me opportunities to explore art, technology,
+            and new ideas.
+          </p>
+        </article>
+      </div>
+    </section>
+
+    <section class="contact-section shell" id="contact">
+      <div class="contact-layout reveal">
+        <div>
+          <span class="mono muted">06 / CONTACT</span>
+          <h2 class="contact-title">Have something interesting <em>in mind?</em></h2>
+          <p class="contact-copy">
+            I'm interested in connecting with people working in computer
+            science, software development, and AI, and learning about
+            opportunities to keep building and improving.
+          </p>
+        </div>
+
+        <div class="contact-actions">
+          <a class="contact-button" href="mailto:aliaalhosani103@icloud.com">
+            Email me ↗
+          </a>
+          <a class="contact-secondary" href="https://github.com/aliavated" target="_blank" rel="noopener noreferrer">
+            Find me on GitHub
+          </a>
+          <span class="mono muted">aliaalhosani103@icloud.com</span>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="footer-inner shell">
+      <span>© <span id="year"></span> Alia Alhosani</span>
+      <div class="footer-links">
+        <a href="https://github.com/aliavated" target="_blank" rel="noopener noreferrer">GITHUB ↗</a>
+        <a href="mailto:aliaalhosani103@icloud.com">EMAIL ↗</a>
+        <a href="#home">BACK TO TOP ↑</a>
+      </div>
+    </div>
+  </footer>
+
+  <script>
+    // Navigation
+
+    const menuToggle = document.getElementById("menuToggle");
+    const navLinks = document.getElementById("navLinks");
+
+    menuToggle.addEventListener("click", () => {
+      const isOpen = navLinks.classList.toggle("open");
+      menuToggle.setAttribute("aria-expanded", String(isOpen));
+      menuToggle.textContent = isOpen ? "Close" : "Menu";
+    });
+
+    navLinks.querySelectorAll("a").forEach(link => {
+      link.addEventListener("click", () => {
+        navLinks.classList.remove("open");
+        menuToggle.setAttribute("aria-expanded", "false");
+        menuToggle.textContent = "Menu";
+      });
+    });
+
+    // Project filtering
+
+    const filters = document.querySelectorAll(".filter");
+    const projects = document.querySelectorAll(".project");
+    const projectCount = document.getElementById("projectCount");
+
+    filters.forEach(button => {
+      button.addEventListener("click", () => {
+        const selected = button.dataset.filter;
+
+        filters.forEach(filter => {
+          const active = filter === button;
+          filter.classList.toggle("active", active);
+          filter.setAttribute("aria-pressed", String(active));
+        });
+
+        let count = 0;
+
+        projects.forEach(project => {
+          const show = selected === "all" || project.dataset.category === selected;
+          project.hidden = !show;
+          if (show) count++;
+        });
+
+        projectCount.textContent = String(count).padStart(2, "0") + " PROJECTS";
+      });
+    });
+
+    // Project notes
+    // These notes describe the current concepts and possible next steps.
+    // Update them as the actual projects develop.
+
+    const projectNotes = {
+      navigation: {
+        title: "Autonomous Navigation System",
+        description:
+          "A browser-based grid navigation prototype. Its purpose is to make the relationship between obstacles, a search process, and a possible route easier to see. The full project can be documented with repository links, implementation details, and tests as the code develops.",
+        learning:
+          "Grid representation, neighbouring cells, search queues, visited positions, and reconstructing a route from recorded parent positions.",
+        next:
+          "Document the implementation, test maps with and without a possible route, compare search strategies, and explain the limitations of using equal movement costs."
+      },
+      rooted: {
+        title: "Rooted",
+        description:
+          "A product concept for people living away from their home countries. The central question is how a digital community could help people maintain connections to their culture and communicate across language barriers.",
+        learning:
+          "Turning a broad social idea into a clear user problem, deciding which features are useful, and separating a product concept from a working implementation.",
+        next:
+          "Define the first version, sketch user journeys, build a small working prototype, and test whether the core experience is understandable."
+      },
+      search: {
+        title: "Alia's Search Engine",
+        description:
+          "A search interface experiment focused on how search results are presented and how users interact with them. The project provides a way to explore interface design and questions about the way people discover information.",
+        learning:
+          "Form design, query handling, result presentation, and how to make an interface clear without overstating what the underlying search system does.",
+        next:
+          "Document the search provider or data source, test different queries, and explain the difference between the interface and the search technology behind it."
+      },
+      candy: {
+        title: "Candy Dash",
+        description:
+          "A game concept built around themed levels and progression. It is an opportunity to explore the logic behind interactive experiences as well as their visual design.",
+        learning:
+          "Breaking a game into smaller systems, planning level progression, and keeping interface state and game behaviour consistent.",
+        next:
+          "Choose a small playable core, test the mechanics, and document which features are implemented versus still planned."
+      }
+    };
+
+    const dialog = document.getElementById("projectDialog");
+    const dialogTitle = document.getElementById("dialogTitle");
+    const dialogDescription = document.getElementById("dialogDescription");
+    const dialogLearning = document.getElementById("dialogLearning");
+    const dialogNext = document.getElementById("dialogNext");
+
+    document.querySelectorAll("[data-project]").forEach(button => {
+      button.addEventListener("click", () => {
+        const data = projectNotes[button.dataset.project];
+        if (!data) return;
+
+        dialogTitle.textContent = data.title;
+        dialogDescription.textContent = data.description;
+        dialogLearning.textContent = data.learning;
+        dialogNext.textContent = data.next;
+
+        dialog.showModal();
+      });
+    });
+
+    document.getElementById("dialogClose").addEventListener("click", () => {
+      dialog.close();
+    });
+
+    dialog.addEventListener("click", event => {
+      if (event.target === dialog) dialog.close();
+    });
+
+    // Pathfinding experiment
+
+    const mazeElement = document.getElementById("maze");
+    const labStatus = document.getElementById("labStatus");
+    const labSteps = document.getElementById("labSteps");
+    const findPathButton = document.getElementById("findPath");
+    const newMazeButton = document.getElementById("newMaze");
+
+    const SIZE = 14;
+    const START = [1, 1];
+    const END = [12, 12];
+
+    let walls = new Set();
+    let cellElements = [];
+    let running = false;
+
+    function keyOf(row, col) {
+      return row + "," + col;
+    }
+
+    function buildMaze() {
+      mazeElement.innerHTML = "";
+      cellElements = [];
+
+      for (let row = 0; row < SIZE; row++) {
+        const rowCells = [];
+
+        for (let col = 0; col < SIZE; col++) {
+          const cell = document.createElement("div");
+          cell.className = "cell";
+          cell.setAttribute("aria-hidden", "true");
+
+          if (row === START[0] && col === START[1]) {
+            cell.classList.add("start");
+          } else if (row === END[0] && col === END[1]) {
+            cell.classList.add("end");
+          }
+
+          mazeElement.appendChild(cell);
+          rowCells.push(cell);
+        }
+
+        cellElements.push(rowCells);
+      }
+
+      renderWalls();
+    }
+
+    function renderWalls() {
+      for (let row = 0; row < SIZE; row++) {
+        for (let col = 0; col < SIZE; col++) {
+          const cell = cellElements[row][col];
+          const key = keyOf(row, col);
+
+          cell.classList.remove("wall", "route", "visited");
+
+          if (walls.has(key)) cell.classList.add("wall");
+
+          if (row === START[0] && col === START[1]) {
+            cell.classList.remove("wall");
+            cell.classList.add("start");
+          }
+
+          if (row === END[0] && col === END[1]) {
+            cell.classList.remove("wall");
+            cell.classList.add("end");
+          }
+        }
+      }
+    }
+
+    function generateWalls() {
+      walls = new Set();
+
+      // A few vertical barriers with gaps create a readable test map.
+      for (let col = 3; col <= 10; col += 3) {
+        const gap = 2 + Math.floor(Math.random() * 10);
+
+        for (let row = 0; row < SIZE; row++) {
+          if (row === gap || row === gap - 1) continue;
+          if (Math.random() > 0.12) {
+            walls.add(keyOf(row, col));
+          }
+        }
+      }
+
+      // Add scattered obstacles without blocking start or destination.
+      for (let i = 0; i < 20; i++) {
+        const row = Math.floor(Math.random() * SIZE);
+        const col = Math.floor(Math.random() * SIZE);
+
+        if ((row === START[0] && col === START[1]) ||
+            (row === END[0] && col === END[1])) {
+          continue;
+        }
+
+        walls.add(keyOf(row, col));
+      }
+
+      walls.delete(keyOf(...START));
+      walls.delete(keyOf(...END));
+
+      buildMaze();
+      labStatus.textContent = "New map ready.";
+      labSteps.textContent = "READY";
+    }
+
+    function searchRoute() {
+      if (running) return;
+
+      running = true;
+      findPathButton.disabled = true;
+      newMazeButton.disabled = true;
+
+      renderWalls();
+
+      const startKey = keyOf(...START);
+      const endKey = keyOf(...END);
+
+      const queue = [[...START]];
+      const visited = new Set([startKey]);
+      const parent = new Map();
+      const explored = [];
+
+      let found = false;
+      let head = 0;
+
+      while (head < queue.length) {
+        const [row, col] = queue[head++];
+        const currentKey = keyOf(row, col);
+        explored.push([row, col]);
+
+        if (currentKey === endKey) {
+          found = true;
+          break;
+        }
+
+        const neighbours = [
+          [row - 1, col],
+          [row + 1, col],
+          [row, col - 1],
+          [row, col + 1]
+        ];
+
+        for (const [nextRow, nextCol] of neighbours) {
+          if (nextRow < 0 || nextRow >= SIZE ||
+              nextCol < 0 || nextCol >= SIZE) {
+            continue;
+          }
+
+          const nextKey = keyOf(nextRow, nextCol);
+
+          if (walls.has(nextKey) || visited.has(nextKey)) continue;
+
+          visited.add(nextKey);
+          parent.set(nextKey, currentKey);
+          queue.push([nextRow, nextCol]);
+        }
+      }
+
+      const route = [];
+
+      if (found) {
+        let current = endKey;
+
+        while (current !== startKey) {
+          const [row, col] = current.split(",").map(Number);
+          route.push([row, col]);
+          current = parent.get(current);
+        }
+
+        route.reverse();
+      }
+
+      // Draw the result without an external library or image.
+      explored.forEach(([row, col]) => {
+        const cell = cellElements[row][col];
+
+        if (!cell.classList.contains("start") &&
+            !cell.classList.contains("end") &&
+            !cell.classList.contains("wall")) {
+          cell.classList.add("visited");
+        }
+      });
+
+      route.forEach(([row, col]) => {
+        const cell = cellElements[row][col];
+        cell.classList.remove("visited");
+        cell.classList.add("route");
+      });
+
+      labSteps.textContent = explored.length + " CHECKED";
+
+      if (found) {
+        labStatus.textContent = "Route found: " + route.length + " moves.";
+      } else {
+        labStatus.textContent = "No route found on this map.";
+      }
+
+      running = false;
+      findPathButton.disabled = false;
+      newMazeButton.disabled = false;
+    }
+
+    findPathButton.addEventListener("click", searchRoute);
+    newMazeButton.addEventListener("click", generateWalls);
+
+    generateWalls();
+
+    // Reveal elements as they enter view.
+
+    const revealElements = document.querySelectorAll(".reveal");
+
+    if ("IntersectionObserver" in window) {
+      const observer = new IntersectionObserver(entries => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("visible");
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.08 });
+
+      revealElements.forEach(element => observer.observe(element));
+    } else {
+      revealElements.forEach(element => element.classList.add("visible"));
+    }
+
+    // Footer year
+
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
